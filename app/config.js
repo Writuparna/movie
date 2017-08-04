@@ -11,7 +11,8 @@ angular.module('movieApp').config(['$urlRouterProvider','$stateProvider', '$loca
 			template : '<main-header></main-header>',			
 		}).state('category',{
 			url : '/category',
-			templateUrl : 'app/components/category/category.html',		
+			templateUrl : 'app/components/category/category.html',	
+			controller : 'CategoryController',	
 		});
 		$urlRouterProvider.otherwise('home');
 }]);

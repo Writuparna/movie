@@ -28,22 +28,22 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 
 	function setAllMovieFn(allData){
 		movieObj.AlldataObj = allData;
-		//console.log('allData: '+JSON.stringify(movieObj.Alldata));
 	}
 	function getAllMovieFn(){
 		return movieObj.AlldataObj;	
-	}/**/
+	}
 	function setGenresFn(allGenres){
 		movieObj.allGenresObj = allGenres;
-		//console.log('allGenres set: '+movieObj.allGenresObj);	
+		//console.log('allGenres set: '+JSON.stringify(allGenres));	
 	}
-	
 	function getGenresFn(){	
-		console.log('allGenres get: '+JSON.stringify(movieObj));
+		//console.dir('allGenres get: '+JSON.stringify(movieObj.allGenresObj));	
 		return movieObj.allGenresObj;	
 	}
 
 	return movieObj;
+
+
 
 
  }]);

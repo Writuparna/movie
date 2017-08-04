@@ -2,20 +2,13 @@
 
 /* Controllers */
 
-angular.module('movieApp.category.controller', []).controller('CategoryController', ['$scope','movieAPI','HomeFactory',function($scope,movieAPI,HomeFactory) {
+angular.module('movieApp.category.controller', []).controller('CategoryController', ['$scope','movieAPI','HomeFactory','$timeout',function($scope,movieAPI,HomeFactory,$timeout) {
 
 	/*$scope.movieList = movieAPI.data;*/
-	$scope.home = "home page";
+	//$scope.category = "category page";
+	
 
-	var callApi = function(){
-		HomeFactory.movieApiFn()
-			.then(function(data){
-				//console.log('data: '+ JSON.stringify(data));
-				$scope.allMovieList = data;
-			},function(){
-				console.log('data cannot retrieved');
-			});
-	}
-	callApi();
-
+    /*$timeout(function () { }, 1);*/
+   
+	
  }]);

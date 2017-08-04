@@ -4,9 +4,7 @@
 
 angular.module('movieApp.home.controller', []).controller('HomeController', ['$scope','movieAPI','HomeFactory',function($scope,movieAPI,HomeFactory) {
 
-	/*$scope.movieList = movieAPI.data;*/
 	$scope.home = "home page";
-
 	var callApi = function(){
 		HomeFactory.movieApiFn()
 			.then(function(data){
@@ -19,18 +17,16 @@ angular.module('movieApp.home.controller', []).controller('HomeController', ['$s
 	}
 	var allMovieList = callApi();
 
-	//console.log('controller: '+allMovieList);
-	//HomeFactory.set;
 
 	function movieCatgFn(data){
 		//console.log('controller: '+JSON.stringify(data));
+		var splitToAry = [];
 		for(var i=0; i<data.length; i++){
-			//console.log('genres: '+data[i].genres);
-			var splitToAry = data[i].genres.split("|");
-			//console.log('genres cntrl: '+splitToAry);
-			HomeFactory.setGenresFn(splitToAry);
+			splitToAry.push(data[i].genres.split("|"));
 		}
+			HomeFactory.setGenresFn(splitToAry);
 			HomeFactory.setAllMovieFn(data);
 	}
+	
 
  }]);
