@@ -8,12 +8,7 @@ angular.module('movieApp').config(['$urlRouterProvider','$stateProvider', '$loca
 			templateUrl : 'app/components/home/home.html',
 			controller : 'HomeController',
 		}).state('header',{
-			//template : '<main-header></main-header>',
-			url : '/header',
-    		templateUrl : 'app/shared/header/header.html',
-			controller : 'HeaderController' 
+			template : '<main-header></main-header>',			
 		});
-
-		$urlRouterProvider.otherwise('header');
-  
+		$urlRouterProvider.otherwise('home');
 }]);

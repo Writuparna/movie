@@ -1,1 +1,24 @@
-this is {{home}}
+<section class="container-fluid">
+	<div class="movieSec">
+		<div class="row panel-group">
+			<div ng-repeat="movie in allMovieList track by $index" class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
+				<div class="panel panel-primary">
+				 <div class="panel-heading">{{movie.movie_title}}</div>
+      			  <div class="panel-body">
+      			  	<p>{{movie.director_name}}</p>
+      			  	<p>{{movie.actor_1_name}}</p>
+      			  	<p>{{movie.actor_2_name}}</p>
+      			  	<p>{{movie.genres}}</p>
+      			  	<p>{{movie.language}}</p>
+      			  	<p>{{movie.country}}</p>
+      			  	<p>{{movie.content_rating}}</p>
+      			  	<p>{{movie.budget}}</p>
+      			  	<p>{{movie.title_year}}</p>
+      			  	<p>{{movie.plot_keywords}}</p>
+      			  	<p>{{movie.movie_imdb_link}}</p>
+      			  </div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
