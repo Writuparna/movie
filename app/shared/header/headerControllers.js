@@ -10,7 +10,6 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 	var callApi = function(){
 		HomeFactory.movieApiFn()
 			.then(function(data){
-				//console.log('data: '+ JSON.stringify(data));
 				$scope.allMovieList = data;
 				movieCatgFn(data);
 			},function(){
@@ -23,16 +22,25 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 		for(var i=0; i<data.length; i++){
 			splitToAry.push(data[i].genres.split("|"));
 		}
-		var array3 = arrayUnique($scope.categoryList.concat(abc()));
-		console.log('array3: '+ array3);
-		function abc(){
-			for(var j=0; j<splitToAry.length; j++){
-				return splitToAry[j];
+		var fullArray = [];
+		var genersAry = [];
+		fullArray=splitToAry.join().split(',');
+		for(var j=0; j<fullArray.length; j++){
+			var count = 0;
+			genersAry.push(fullArray[j]);
+			for(var k=0; k<genersAry.length; k++){
+				if(fullArray[j]==genersAry[k]){
+					count+=1;
+				}
+				if(count>1){
+					genersAry.pop();
+				}
 			}
 		}
-		console.log('categoryList: '+ abc())
+		console.log(genersAry);
+		
 	}
-	function arrayUnique(array) {
+	/*function arrayUnique(array) {
 	    var a = array.concat();
 	    for(var i=0; i<a.length; ++i) {
 	        for(var j=i+1; j<a.length; ++j) {
@@ -42,7 +50,7 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 	    }
 	    return a;
 	}
-/*	var ar1 = [];
+	var ar1 = [];
 	var ar2 = ['x','n','a'];
 	var ar3 = ['b','c','d'];
 	var array3 = arrayUnique(ar1.concat(ar2,ar3));

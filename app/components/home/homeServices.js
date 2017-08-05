@@ -20,6 +20,7 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 			method : 'GET',
 		}).success(function(data){
 			defer.resolve(data);
+			
 		}).error(function(){
 			defer.reject();
 		});
