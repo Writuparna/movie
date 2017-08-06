@@ -2,13 +2,32 @@
 
 /* Controllers */
 
-angular.module('movieApp.category.controller', []).controller('CategoryController', ['$scope','movieAPI','HomeFactory','$timeout',function($scope,movieAPI,HomeFactory,$timeout) {
+angular.module('movieApp.category.controller', []).controller('CategoryController', ['$scope','movieAPI','HomeFactory','$timeout','$state',function($scope,movieAPI,HomeFactory,$timeout,$state) {
 
-	/*$scope.movieList = movieAPI.data;*/
-	//$scope.category = "category page";
-	
+	$scope.catgName = $state.params.id;
+	$scope.sameCatgAry = [];
 
-    /*$timeout(function () { }, 1);*/
-   
-	
+	var callApi = function(){
+		HomeFactory.movieApiFn()
+			.then(function(data){
+				$scope.allMovieList = data;				
+				movieCatgListFn(data);
+			},function(){
+				console.log('data cannot retrieved');
+			});
+	}
+	var allMovieList = callApi();
+
+	function movieCatgListFn(data){
+		for(var i=0; i<data.length; i++){
+			var str = data[i].genres;
+			console.log($scope.catgName);
+			if(str.search($scope.catgName) != -1){
+				$scope.sameCatgAry.push(data[i]);
+			}
+		}
+	}
+
+
+
  }]);

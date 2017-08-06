@@ -10,7 +10,7 @@ angular.module('movieApp').config(['$urlRouterProvider','$stateProvider', '$loca
 		}).state('header',{
 			template : '<main-header></main-header>',			
 		}).state('category',{
-			url : '/category',
+			url : '/category/:id',
 			templateUrl : 'app/components/category/category.html',	
 			controller : 'CategoryController',	
 		});

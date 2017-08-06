@@ -9,7 +9,9 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 		setGenresFn : setGenresFn,
 		setAllMovieFn : setAllMovieFn,
 		getGenresFn : getGenresFn,
-		getAllMovieFn : getAllMovieFn
+		getAllMovieFn : getAllMovieFn,
+		setCatgProFn : setCatgProFn,
+		//getCatgProFn : getCatgProFn
 	};
 
 	function movieApiFn(){
@@ -42,10 +44,17 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 		return movieObj.allGenresObj;	
 	}
 
+
+	function setCatgProFn(catgname){
+
+	}
+
+
+
+
+
+
 	return movieObj;
-
-
-
 
  }]);
 
