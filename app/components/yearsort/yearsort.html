@@ -1,0 +1,23 @@
+<section class="container-fluid">
+  <div class="movieSec">
+    <div class="row panel-group">
+      <div ng-repeat="movie in yearlyMovie track by $index" class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
+        <div class="panel panel-primary">
+         <div class="panel-heading">{{movie.movie_title}}</div>
+              <div class="panel-body">
+                <p><b>Director: </b><span>{{movie.director_name}}</span></p>
+                <p><b>Actors: </b><span>{{movie.actor_1_name}},{{movie.actor_2_name}}</span></p>
+                <p><b>Genres: </b><span>{{movie.genres}}</span></p>
+                <p><b>Language: </b><span>{{movie.language}}</span></p>
+                <p><b>Country: </b><span>{{movie.country}}</span></p>
+                <p><b>Rating: </b><span>{{movie.content_rating}}</span></p>
+                <p><b>Budget: </b><span>{{movie.budget}}</span></p>
+                <p><b>Year: </b><span>{{movie.title_year}}</span></p>
+                <p><b>Plot: </b><span>{{movie.plot_keywords}}</span></p>
+                <a href="{{movie.movie_imdb_link}}" target="_blank" class="btn btn-primary">Read more</a>
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -13,6 +13,14 @@ angular.module('movieApp').config(['$urlRouterProvider','$stateProvider', '$loca
 			url : '/category/:id',
 			templateUrl : 'app/components/category/category.html',	
 			controller : 'CategoryController',	
+		}).state('search',{
+			url : '/search/:id',
+			templateUrl : 'app/components/search/search.html',	
+			controller : 'SearchController',	
+		}).state('yearsort',{
+			url : '/yearsort',
+			templateUrl : 'app/components/yearsort/yearsort.html',	
+			controller : 'YearsortController',	
 		});
 		$urlRouterProvider.otherwise('home');
 }]);

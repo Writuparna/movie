@@ -1,14 +1,12 @@
 <section class="container-fluid">
-      <ul>
-            <li><button type="button" ng-click="yearSortFn()">Sort by year</button></li> 
-            <!--<li><a ng-click="yearSortFn()">Sort by year</a></li>-->
-            <li><a ng-href="#/budgetSort/{{searchName}}">Sort by budget</a></li>
-      </ul>
-</section> 
+
+<h2>this is {{searchName}}</h2>
+
+
 <section class="container-fluid">
 	<div class="movieSec">
 		<div class="row panel-group">
-			<div ng-repeat="movie in allMovieList track by $index" class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
+			<div ng-repeat="movie in searchCatgAry track by $index" class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
 				<div class="panel panel-primary">
 				 <div class="panel-heading">{{movie.movie_title}}</div>
       			  <div class="panel-body">
@@ -27,4 +25,11 @@
 			</div>
 		</div>
 	</div>
+</section>
+
+
+
+
+<!-- {{allMovieList}} -->
+
 </section>

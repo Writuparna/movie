@@ -6,9 +6,9 @@
     </div>
     <form class="navbar-form navbar-right">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchName" >
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <a class="btn btn-default" ng-href="#/search/{{searchName}}">Submit</a>
     </form>
     <ul class="nav navbar-nav">
       <li ng-repeat="catg in genersAry"><a ng-href="#/category/{{catg}}">{{catg}}</a></li>

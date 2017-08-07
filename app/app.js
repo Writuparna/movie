@@ -6,6 +6,8 @@ angular.module('movieApp', [
 	'ui.router',
 	'movieApp.home',
 	'movieApp.header',
-	'movieApp.category'
+	'movieApp.category',
+	'movieApp.search',
+	'movieApp.yearsort'
 ])
 .constant('movieAPI', 'http://starlord.hackerearth.com/movieslisting');

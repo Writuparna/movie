@@ -10,8 +10,12 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 		setAllMovieFn : setAllMovieFn,
 		getGenresFn : getGenresFn,
 		getAllMovieFn : getAllMovieFn,
-		setCatgProFn : setCatgProFn,
-		//getCatgProFn : getCatgProFn
+		setSearchItemFn : setSearchItemFn,
+		getSearchItemFn : getSearchItemFn,
+		setSortYearFn : setSortYearFn,
+		getSortYearFn : getSortYearFn,
+		setSortNewtoOldFn : setSortNewtoOldFn,
+		getSortNewtoOldFn : getSortNewtoOldFn
 	};
 
 	function movieApiFn(){
@@ -44,14 +48,34 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 		return movieObj.allGenresObj;	
 	}
 
+	function setSearchItemFn(data){
+		movieObj.searchFieldVal = data;
+	}
 
-	function setCatgProFn(catgname){
+	function getSearchItemFn(){
+		return movieObj.searchFieldVal;
+	}
 
+	function setSortYearFn(data){
+		var allData = data;
+		movieObj.yearSortData = allData.sort(function(a, b){return a.title_year - b.title_year});
+	}
+
+	function getSortYearFn(){
+		return movieObj.yearSortData;		
 	}
 
 
+	function setSortNewtoOldFn(data){
+		var allData = data;
+		movieObj.yearSortData = allData.sort(function(a, b){return b.title_year - a.title_year});
+		localStorage.setItem('oldToNew', movieObj.yearSortData);
+		console.log(oldToNew);
+	}
 
-
+	function getSortNewtoOldFn(){
+		return movieObj.yearSortData;		
+	}
 
 
 	return movieObj;

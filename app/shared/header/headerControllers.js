@@ -7,6 +7,7 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 
 	$scope.header = "home page";
 	$scope.categoryList = [];
+
 	var callApi = function(){
 		HomeFactory.movieApiFn()
 			.then(function(data){
@@ -38,5 +39,9 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 			}
 		}	
 	}
+
+
+
+
     	
  }]);
