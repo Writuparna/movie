@@ -21,7 +21,6 @@ angular.module('movieApp.category.controller', []).controller('CategoryControlle
 	function movieCatgListFn(data){
 		for(var i=0; i<data.length; i++){
 			var str = data[i].genres;
-			console.log($scope.catgName);
 			if(str.search($scope.catgName) != -1){
 				$scope.sameCatgAry.push(data[i]);
 			}

@@ -8,6 +8,9 @@
   	restrict : 'AEC',
     	replace : true,
     	transclude :  true,
+    	scope : {
+    		 yearSortFn: '&'
+    	},
     	controller : 'YearsortController',
     	templateUrl : 'app/components/yearsort/yearsort.html',
     };

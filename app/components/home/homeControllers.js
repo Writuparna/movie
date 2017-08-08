@@ -31,18 +31,18 @@ angular.module('movieApp.home.controller', []).controller('HomeController', ['$s
 		HomeFactory.setAllMovieFn(data);
 	}
 
-	$scope.yearSortFn = function(){
+	/*$scope.yearSortFn = function(sortParam){
 		console.log('abc');
 		HomeFactory.movieApiFn()
 			.then(function(data){
 				$scope.allMovieList = data;
-				HomeFactory.setSortYearFn(data);
-				HomeFactory.setSortNewtoOldFn(data);
+				HomeFactory.setSortYearFn(data,sortParam);
 			},function(){
 				console.log('data cannot retrieved');
-			});/**/
-		$state.go('yearsort',null,{reload:true});
-	}
+			});
+		var paramResult = sortParam;
+		$state.go('yearsort/'+sortParam,null,{reload:true});
+	}*/
 
 	
 

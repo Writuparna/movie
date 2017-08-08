@@ -11,7 +11,13 @@
       <a class="btn btn-default" ng-href="#/search/{{searchName}}">Submit</a>
     </form>
     <ul class="nav navbar-nav">
-      <li ng-repeat="catg in genersAry"><a ng-href="#/category/{{catg}}">{{catg}}</a></li>
+       <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Geners
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li ng-repeat="catg in genersAry"><a ng-href="#/category/{{catg}}">{{catg}}</a></li>
+          </ul>
+      </li>
     </ul>
   </div>
 </nav> 
