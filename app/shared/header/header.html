@@ -6,10 +6,15 @@
     </div>
     <form class="navbar-form navbar-right">
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search" ng-model="searchName" >
+        <input type="text" class="form-control" placeholder="Search" ng-model="searchName" ng-change="changeFn(searchName)">
       </div>
       <a class="btn btn-default" ng-href="#/search/{{searchName}}">Submit</a>
     </form>
+    <ul class="autoComplete">
+      <li ng-repeat="autocatg in searchCatgAry track by $index">
+        <a ng-click="serchAutocatg(autocatg)">{{autocatg}}</a>
+      </li>
+    </ul>
     <ul class="nav navbar-nav">
        <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Geners

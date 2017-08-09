@@ -13,6 +13,7 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 			.then(function(data){
 				$scope.allMovieList = data;
 				movieCatgFn(data);
+				searchList(data);
 			},function(){
 				console.log('data cannot retrieved');
 			});
@@ -40,7 +41,29 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 		}	
 	}
 
+	function searchList(data){
+		$scope.changeFn = function(userData){
+			if(userData!=null || userData!= ""){
+				$scope.searchCatgAry = [];
+				for(var i=0; i<data.length; i++){
+					var str = data[i].movie_title.toLowerCase().trim();
+					var search = userData.toLowerCase().trim();
+					if(str.search(search) != -1){
+						$scope.searchCatgAry.push(data[i].movie_title);
+					}
+				}
+				if(userData==null || userData== ""){
+					$scope.searchCatgAry = [];
+				}
+			}
+		}
+	}
 
+	$scope.serchAutocatg = function(data){
+		console.log(data);
+		$scope.searchName = data;
+		$scope.searchCatgAry = [];
+	}
 
 
     	

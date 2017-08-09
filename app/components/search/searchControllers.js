@@ -27,6 +27,7 @@ angular.module('movieApp.search.controller', []).controller('SearchController', 
 				$scope.searchCatgAry.push(data[i]);
 			}
 		}
+		console.log($scope.searchCatgAry);
 	}
 
 
