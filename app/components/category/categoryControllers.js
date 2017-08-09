@@ -8,13 +8,17 @@ angular.module('movieApp.category.controller', []).controller('CategoryControlle
 	$scope.sameCatgAry = [];
 
 	var callApi = function(){
-		HomeFactory.movieApiFn()
-			.then(function(data){
-				$scope.allMovieList = data;				
-				movieCatgListFn(data);
-			},function(){
+		/*HomeFactory.movieApiFn()
+			.then(function(data){*/
+				var apidata = localStorage.getItem('apiData');
+				apidata = JSON.parse(apidata);
+				$scope.allMovieList = apidata;				
+				movieCatgListFn(apidata);
+				/*$scope.allMovieList = data;				
+				movieCatgListFn(data);*/
+			/*},function(){
 				console.log('data cannot retrieved');
-			});
+			});*/
 	}
 	var allMovieList = callApi();
 

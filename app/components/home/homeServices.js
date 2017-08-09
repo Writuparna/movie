@@ -22,7 +22,7 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 			method : 'GET',
 		}).success(function(data){
 			defer.resolve(data);
-			
+			localStorage.setItem('apiData', JSON.stringify(data));			
 		}).error(function(){
 			defer.reject();
 		});

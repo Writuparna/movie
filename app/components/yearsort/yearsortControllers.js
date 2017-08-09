@@ -10,23 +10,25 @@ angular.module('movieApp.yearsort.controller', []).controller('YearsortControlle
 	$scope.catgName = $state.params.page_id;
 
    $scope.yearSortFn = function(){
-		HomeFactory.movieApiFn()
-			.then(function(data){
+		/*HomeFactory.movieApiFn()
+			.then(function(data){*/
+				var apidata = localStorage.getItem('apiData');
+				apidata = JSON.parse(apidata);
    				if($scope.sortParamPage=='home'){
 					if($scope.sortParam=='oldtonew'&&$scope.sortParam!='newtoold'){
-						$scope.yearlyMovie = data.sort(function(a, b){return a.title_year - b.title_year});
+						$scope.yearlyMovie = apidata.sort(function(a, b){return a.title_year - b.title_year});
 					}
 					else if($scope.sortParam=='newtoold'&&$scope.sortParam!='oldtonew'){
-						$scope.yearlyMovie = data.sort(function(a, b){return b.title_year - a.title_year});
+						$scope.yearlyMovie = apidata.sort(function(a, b){return b.title_year - a.title_year});
 					}
 				}else if($scope.sortParamPage!='home'){
-					movieCatgListFn(data);
-					function movieCatgListFn(data){
+					movieCatgListFn(apidata);
+					function movieCatgListFn(apidata){
 						$scope.sameCatgAry = [];
-						for(var i=0; i<data.length; i++){
-							var str = data[i].genres;
+						for(var i=0; i<apidata.length; i++){
+							var str = apidata[i].genres;
 							if(str.search($scope.catgName) != -1){
-								$scope.sameCatgAry.push(data[i]);
+								$scope.sameCatgAry.push(apidata[i]);
 							}
 						}
 						//console.log('$scope.sameCatgAry: '+ JSON.stringify($scope.sameCatgAry));
@@ -38,9 +40,9 @@ angular.module('movieApp.yearsort.controller', []).controller('YearsortControlle
 						}
 					}
 				}
-			},function(){
+			/*},function(){
 				console.log('data cannot retrieved');
-			});
+			});*/
 	
 	} 
  	$scope.yearSortFn();

@@ -10,19 +10,21 @@ angular.module('movieApp.budgetsort.controller', []).controller('BudgetsortContr
 	$scope.catgName = $state.params.page_id;
 
    $scope.budgetSortFn = function(){
-		console.log('abc: '+$scope.priceParam);
+		/*console.log('abc: '+$scope.priceParam);
 		HomeFactory.movieApiFn()
-			.then(function(data){
+			.then(function(data){*/
+				var apidata = localStorage.getItem('apiData');
+				apidata = JSON.parse(apidata);
 				if($scope.pageParam=='home'){
 					if($scope.priceParam=='lowtohigh'&&$scope.priceParam!='hightolow'){
-						$scope.budgetMovie = data.sort(function(a, b){return a.title_year - b.title_year});
+						$scope.budgetMovie = apidata.sort(function(a, b){return a.title_year - b.title_year});
 					}
 					else if($scope.priceParam=='hightolow'&&$scope.priceParam!='lowtohigh'){
-						$scope.budgetMovie = data.sort(function(a, b){return b.title_year - a.title_year});
+						$scope.budgetMovie = apidata.sort(function(a, b){return b.title_year - a.title_year});
 					}
 				}else if($scope.pageParam!='home'){
 					console.log('$scope.pageParam: '+ $scope.pageParam);
-					movieCatgListFn(data);
+					movieCatgListFn(apidata);
 					function movieCatgListFn(data){
 						$scope.sameCatgAry = [];
 						for(var i=0; i<data.length; i++){
@@ -39,9 +41,9 @@ angular.module('movieApp.budgetsort.controller', []).controller('BudgetsortContr
 						}
 					}
 				}
-			},function(){
+			/*},function(){
 				console.log('data cannot retrieved');
-			});
+			});*/
 	} 
  	$scope.budgetSortFn();
 

@@ -8,16 +8,15 @@ angular.module('movieApp.home.controller', []).controller('HomeController', ['$s
 	$scope.allMovieAry = [];
 
 	var callApi = function(){
-		HomeFactory.movieApiFn()
-			.then(function(data){
-				//console.log('data: '+ JSON.stringify(data));
-				$scope.allMovieList = data;
-				//HomeFactory.setSortYearFn(data);
-				movieCatgFn(data);
-				//sortYear(data);
-			},function(){
+		/*HomeFactory.movieApiFn()
+			.then(function(data){*/
+				var apidata = localStorage.getItem('apiData');
+				apidata = JSON.parse(apidata);
+				$scope.allMovieList = apidata;
+				movieCatgFn(apidata);
+			/*},function(){
 				console.log('data cannot retrieved');
-			});
+			});*/
 	}
 	var allMovieList = callApi();
 

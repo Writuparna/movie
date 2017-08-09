@@ -9,14 +9,18 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 	$scope.categoryList = [];
 
 	var callApi = function(){
-		HomeFactory.movieApiFn()
-			.then(function(data){
-				$scope.allMovieList = data;
-				movieCatgFn(data);
-				searchList(data);
-			},function(){
+		/*HomeFactory.movieApiFn()
+			.then(function(data){*/
+				var apidata = localStorage.getItem('apiData');
+				apidata = JSON.parse(apidata);
+				$scope.allMovieList = apidata;
+				movieCatgFn(apidata);
+				searchList(apidata);
+				//console.log('apidata: '+ JSON.stringify(apidata));
+				//console.log('data: '+ JSON.stringify(data));
+			/*},function(){
 				console.log('data cannot retrieved');
-			});
+			});*/
 	}
 	var allMovieList = callApi();
 	function movieCatgFn(data){
