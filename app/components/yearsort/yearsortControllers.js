@@ -29,7 +29,7 @@ angular.module('movieApp.yearsort.controller', []).controller('YearsortControlle
 								$scope.sameCatgAry.push(data[i]);
 							}
 						}
-						console.log('$scope.sameCatgAry: '+ JSON.stringify($scope.sameCatgAry));
+						//console.log('$scope.sameCatgAry: '+ JSON.stringify($scope.sameCatgAry));
 						if($scope.sortParam=='oldtonew'&&$scope.sortParam!='newtoold'){
 							$scope.yearlyMovie = $scope.sameCatgAry.sort(function(a, b){return a.title_year - b.title_year});
 						}

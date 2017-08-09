@@ -7,6 +7,7 @@ angular.module('movieApp.budgetsort.controller', []).controller('BudgetsortContr
 
 	$scope.priceParam = $state.params.price_id;
 	$scope.pageParam = $state.params.page_id;
+	$scope.catgName = $state.params.page_id;
 
    $scope.budgetSortFn = function(){
 		console.log('abc: '+$scope.priceParam);
@@ -20,20 +21,21 @@ angular.module('movieApp.budgetsort.controller', []).controller('BudgetsortContr
 						$scope.budgetMovie = data.sort(function(a, b){return b.title_year - a.title_year});
 					}
 				}else if($scope.pageParam!='home'){
+					console.log('$scope.pageParam: '+ $scope.pageParam);
 					movieCatgListFn(data);
-					$scope.sameCatgAry = [];
 					function movieCatgListFn(data){
+						$scope.sameCatgAry = [];
 						for(var i=0; i<data.length; i++){
 							var str = data[i].genres;
-							if(str.search($scope.catgName) != -1){
+							if(str.search($scope.pageParam) != -1){
 								$scope.sameCatgAry.push(data[i]);
 							}
-						}						
+						}					
 						if($scope.priceParam=='lowtohigh'&&$scope.priceParam!='hightolow'){
-							$scope.budgetMovie = $scope.sameCatgAry.sort(function(a, b){return a.title_year - b.title_year});
+							$scope.budgetMovie = $scope.sameCatgAry.sort(function(a, b){return a.budget - b.budget});
 						}
 						else if($scope.priceParam=='hightolow'&&$scope.priceParam!='lowtohigh'){
-							$scope.budgetMovie = $scope.sameCatgAry.sort(function(a, b){return b.title_year - a.title_year});
+							$scope.budgetMovie = $scope.sameCatgAry.sort(function(a, b){return b.budget - a.budget});
 						}
 					}
 				}

@@ -3,7 +3,7 @@
 /* Directives */
 
 
- angular.module('movieApp.budgetSort.directives', []).directive('budgetSort',[function(){
+ angular.module('movieApp.budgetsort.directives', []).directive('budgetSort',[function(){
     return{
   	restrict : 'AEC',
     	replace : true,
