@@ -23,9 +23,10 @@ angular.module('movieApp').config(['$urlRouterProvider','$stateProvider', '$loca
 			/*templateUrl : 'app/components/yearsort/yearsort.html',	
 			controller : 'YearsortController',	*/
 		}).state('budgetsort',{
-			url : '/budgetsort/:id',
-			templateUrl : 'app/components/budgetsort/budgetsort.html',	
-			controller : 'BudgetsortController',	/**/
+			url : '/budgetsort/:price_id/:page_id',
+			template : '<budget-sort></budget-sort>',	
+			/*templateUrl : 'app/components/budgetsort/budgetsort.html',	
+			controller : 'BudgetsortController',	*/
 		});
 		$urlRouterProvider.otherwise('home'); 
 }]);

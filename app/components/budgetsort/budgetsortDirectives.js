@@ -3,16 +3,13 @@
 /* Directives */
 
 
- angular.module('movieApp.yearsort.directives', []).directive('yearSort',[function(){
+ angular.module('movieApp.budgetSort.directives', []).directive('budgetSort',[function(){
     return{
   	restrict : 'AEC',
     	replace : true,
     	transclude :  true,
-    	scope : {
-    		 yearSortFn: '&'
-    	},
-    	controller : 'YearsortController',
-    	templateUrl : 'app/components/yearsort/yearsort.html',
+    	controller : 'BudgetsortController',
+    	templateUrl : 'app/components/budgetSort/budgetSort.html',
     };
 }]);
 /* */

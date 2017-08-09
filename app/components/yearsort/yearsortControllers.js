@@ -8,7 +8,6 @@ angular.module('movieApp.yearsort.controller', []).controller('YearsortControlle
 	$scope.sortParam = $state.params.time_id;
 	$scope.sortParamPage = $state.params.page_id;
 	$scope.catgName = $state.params.page_id;
-	console.log('abc: '+$scope.sortParamPage);
 
    $scope.yearSortFn = function(){
 		HomeFactory.movieApiFn()

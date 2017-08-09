@@ -1,12 +1,19 @@
- <section class="container-fluid">
-      <ul>
-           <li><a ng-href="#/yearsort/oldtonew/{{catgName}}">Old to new</a></li> 
-           <li><a ng-href="#/yearsort/newtoold/{{catgName}}">New to old</a></li>
-      </ul>
-</section> 
-
 <h2>this is {{catgName}}</h2>
 <section class="container-fluid">
+ <ul>
+  <li>Year sort
+    <ul>
+       <li><a ng-href="#/yearsort/oldtonew/{{catgName}}">Old to new</a></li> 
+       <li><a ng-href="#/yearsort/newtoold/{{catgName}}">New to old</a></li>
+    </ul>
+  </li>
+  <li>Budget sort
+    <ul>
+     <li><a ng-href="#/budgetsort/lowtohigh/{{catgName}}">Low to high</a></li> 
+     <li><a ng-href="#/budgetsort/hightolow/{{catgName}}">High to low</a></li>
+    </ul>
+  </li>
+</ul>
 	<div class="movieSec">
 		<div class="row panel-group">
 			<div ng-repeat="movie in sameCatgAry track by $index" class="col-xs-10 col-sm-4 col-md-3 col-lg-3">
