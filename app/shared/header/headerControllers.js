@@ -3,24 +3,17 @@
 /* Controllers */
 
 
-angular.module('movieApp.header.controller', []).controller('HeaderController', ['$scope','HomeFactory','$timeout',function($scope,HomeFactory,$timeout) {
+angular.module('movieApp.header.controller', []).controller('HeaderController', ['$scope','HomeFactory','$timeout','$state',function($scope,HomeFactory,$timeout,$state){
 
 	$scope.header = "home page";
 	$scope.categoryList = [];
 
 	var callApi = function(){
-		/*HomeFactory.movieApiFn()
-			.then(function(data){*/
 				var apidata = localStorage.getItem('apiData');
 				apidata = JSON.parse(apidata);
 				$scope.allMovieList = apidata;
 				movieCatgFn(apidata);
 				searchList(apidata);
-				//console.log('apidata: '+ JSON.stringify(apidata));
-				//console.log('data: '+ JSON.stringify(data));
-			/*},function(){
-				console.log('data cannot retrieved');
-			});*/
 	}
 	var allMovieList = callApi();
 	function movieCatgFn(data){
@@ -69,6 +62,11 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 		$scope.searchCatgAry = [];
 	}
 
+	 $scope.searchFn = function(searchName){
+		console.log('hello: '+searchName);
+		$scope.searchCatgAry = [];
+		$state.go('search',{id: searchName},{reload:true});
+	}
 
     	
  }]);

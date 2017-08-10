@@ -2,23 +2,18 @@
 
 /* Controllers */
 
-angular.module('movieApp.search.controller', []).controller('SearchController', ['$scope','movieAPI','HomeFactory','$timeout','$state',function($scope,movieAPI,HomeFactory,$timeout,$state) {
+angular.module('movieApp.search.controller', []).controller('SearchController', ['$scope','movieAPI','HomeFactory','$timeout','$state','$stateParams',function($scope,movieAPI,HomeFactory,$timeout,$state,$stateParams) {
 
+	/*$scope.searchName = $state.params.param1;*/
 	$scope.searchName = $state.params.id;
 	$scope.searchCatgAry = [];
+	console.log('searchName: '+JSON.stringify($scope.searchName));
 
 	var callApi = function(){
-		/*HomeFactory.movieApiFn()
-			.then(function(data){*/
 				var apidata = localStorage.getItem('apiData');
 				apidata = JSON.parse(apidata);
 				$scope.allMovieList = apidata;
 				searchFieldFn(apidata);
-				//$scope.allMovieList = data;				
-				//searchFieldFn(data);
-			/*},function(){
-				console.log('data cannot retrieved');
-			});*/
 	}
 	var allMovieList = callApi();
 

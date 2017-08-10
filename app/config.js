@@ -7,26 +7,22 @@ angular.module('movieApp').config(['$urlRouterProvider','$stateProvider', '$loca
 			url : '/home',
 			templateUrl : 'app/components/home/home.html',
 			controller : 'HomeController',
+		}).state('search',{
+			url : '/search/:id',
+			templateUrl : 'app/components/search/search.html',	
+			controller : 'SearchController',	
 		}).state('header',{
 			template : '<main-header></main-header>',			
 		}).state('category',{
 			url : '/category/:id',
 			templateUrl : 'app/components/category/category.html',	
 			controller : 'CategoryController',	
-		}).state('search',{
-			url : '/search/:id',
-			templateUrl : 'app/components/search/search.html',	
-			controller : 'SearchController',	
 		}).state('yearsort',{
 			url : '/yearsort/:time_id/:page_id',
 			template : '<year-sort></year-sort>',	
-			/*templateUrl : 'app/components/yearsort/yearsort.html',	
-			controller : 'YearsortController',	*/
 		}).state('budgetsort',{
 			url : '/budgetsort/:price_id/:page_id',
 			template : '<budget-sort></budget-sort>',	
-			/*templateUrl : 'app/components/budgetsort/budgetsort.html',	
-			controller : 'BudgetsortController',	*/
 		});
 		$urlRouterProvider.otherwise('home'); 
 }]);

@@ -8,8 +8,9 @@
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Search" ng-model="searchName" ng-change="changeFn(searchName)">
       </div>
-      <a class="btn btn-default" ng-href="#/search/{{searchName}}">Submit</a>
+    <button type="button" class="btn btn-default" ng-click="searchFn(searchName)">Submit</button>
     </form>
+    <!--   <a class="btn btn-default" ng-click="hello()" ng-href="#/search/{{searchName}}">Submit</a> -->
     <ul class="autoComplete">
       <li ng-repeat="autocatg in searchCatgAry track by $index">
         <a ng-click="serchAutocatg(autocatg)">{{autocatg}}</a>
