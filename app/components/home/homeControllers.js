@@ -6,17 +6,18 @@ angular.module('movieApp.home.controller', []).controller('HomeController', ['$s
 
 	$scope.home = "home page";
 	$scope.allMovieAry = [];
+	//$scope.test = movieAPI;
 
 	var callApi = function(){
-		/*HomeFactory.movieApiFn()
-			.then(function(data){*/
+		HomeFactory.movieApiFn()
+			.then(function(){/**/
 				var apidata = localStorage.getItem('apiData');
 				apidata = JSON.parse(apidata);
 				$scope.allMovieList = apidata;
 				movieCatgFn(apidata);
-			/*},function(){
+			},function(){
 				console.log('data cannot retrieved');
-			});*/
+			});/**/
 	}
 	var allMovieList = callApi();
 

@@ -7,14 +7,24 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 
 	$scope.header = "home page";
 	$scope.categoryList = [];
-
 	var callApi = function(){
+		HomeFactory.movieApiFn()
+			.then(function(data){/**/
 				var apidata = localStorage.getItem('apiData');
 				apidata = JSON.parse(apidata);
 				$scope.allMovieList = apidata;
 				movieCatgFn(apidata);
 				searchList(apidata);
+			},function(){
+				console.log('data cannot retrieved');
+			});
 	}
+	/*var callApi = function(){
+				var apidata = localStorage.getItem('apiData');
+				apidata = JSON.parse(apidata);
+				$scope.allMovieList = apidata;
+				movieCatgFn(apidata);
+	}*/
 	var allMovieList = callApi();
 	function movieCatgFn(data){
 		var splitToAry = [];
@@ -57,15 +67,16 @@ angular.module('movieApp.header.controller', []).controller('HeaderController', 
 	}
 
 	$scope.serchAutocatg = function(data){
-		console.log(data);
+		//console.log(data);
 		$scope.searchName = data;
 		$scope.searchCatgAry = [];
 	}
 
 	 $scope.searchFn = function(searchName){
-		console.log('hello: '+searchName);
+		//console.log('hello: '+searchName);
 		$scope.searchCatgAry = [];
 		$state.go('search',{id: searchName},{reload:true});
+		$scope.searchName = "";
 	}
 
     	

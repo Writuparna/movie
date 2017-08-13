@@ -15,10 +15,12 @@ angular.module('movieApp.home.services', []).factory('HomeFactory', ['movieAPI',
 		
 	};
 
+	//console.log("hello"+movieAPI);
 	function movieApiFn(){
 		var defer = $q.defer();
 		$http({
-			url: 'data/data.json',
+			//url: 'data/data.json',
+			url: movieAPI,
 			method : 'GET',
 		}).success(function(data){
 			defer.resolve(data);

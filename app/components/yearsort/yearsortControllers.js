@@ -46,6 +46,9 @@ angular.module('movieApp.yearsort.controller', []).controller('YearsortControlle
 	
 	} 
  	$scope.yearSortFn();
-
+	/*this.sayHello = function() {
+        $scope.words = "my requier";
+        console.log( $scope.words);
+      };*/
 
  }]);
